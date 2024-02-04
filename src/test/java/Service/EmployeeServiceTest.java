@@ -1,7 +1,6 @@
 package Service;
 
 import com.example.homework23.Employee;
-import com.example.homework23.Exceptions.WrongFirstOrLastName;
 import com.example.homework23.Services.EmployeeService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.TestInstance;
@@ -17,7 +16,7 @@ import java.util.stream.Stream;
 public class EmployeeServiceTest {
     @ParameterizedTest
     @MethodSource("params")
-    void add(String firstName, String lastName, int departmentId, float salary, Employee expected) throws WrongFirstOrLastName {
+    void add(String firstName, String lastName, int departmentId, float salary, Employee expected) {
         EmployeeService employeeService = new EmployeeService(new HashMap<>());
         Employee actual = employeeService.add(firstName, lastName, departmentId, salary);
         Assertions.assertEquals(expected, actual);
@@ -25,7 +24,7 @@ public class EmployeeServiceTest {
 
     @ParameterizedTest
     @MethodSource("params")
-    void remove(String firstName, String lastName, int departmentId, float salary, Employee expected) throws WrongFirstOrLastName {
+    void remove(String firstName, String lastName, int departmentId, float salary, Employee expected) {
         Employee employee = new Employee(StringUtils.capitalize(firstName), StringUtils.capitalize(lastName), departmentId, salary);
         EmployeeService employeeService = new EmployeeService(new HashMap<>());
         employeeService.add(firstName, lastName, departmentId, salary);
@@ -39,7 +38,7 @@ public class EmployeeServiceTest {
 
     @ParameterizedTest
     @MethodSource("params")
-    void find(String firstName, String lastName, int departmentId, float salary, Employee expected) throws WrongFirstOrLastName {
+    void find(String firstName, String lastName, int departmentId, float salary, Employee expected) {
         Employee employee = new Employee(StringUtils.capitalize(firstName), StringUtils.capitalize(lastName), departmentId, salary);
         EmployeeService employeeService = new EmployeeService(new HashMap<>());
         employeeService.add(firstName, lastName, departmentId, salary);

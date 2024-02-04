@@ -1,7 +1,6 @@
 package Service;
 
 import com.example.homework23.Employee;
-import com.example.homework23.Exceptions.WrongFirstOrLastName;
 import com.example.homework23.Services.DepartmentService;
 import com.example.homework23.Services.EmployeeService;
 import org.junit.jupiter.api.Assertions;
@@ -29,7 +28,7 @@ public class DepartmentServiceTest {
     private DepartmentGenerate departmentGenerate = new DepartmentGenerate();
     @ParameterizedTest
     @MethodSource("params")
-    void maxSalary(List<Employee> employees) throws WrongFirstOrLastName {
+    void maxSalary(List<Employee> employees) {
         double max = 0;
         for (Employee employee : employees) {
             if (max < employee.getSalary()) {
@@ -47,7 +46,7 @@ public class DepartmentServiceTest {
     }
     @ParameterizedTest
     @MethodSource("params")
-    void minSalary(List<Employee> employees) throws WrongFirstOrLastName {
+    void minSalary(List<Employee> employees) {
         double min = Double.MAX_VALUE;
         for (Employee employee : employees) {
             if (min > employee.getSalary()) {
@@ -66,7 +65,7 @@ public class DepartmentServiceTest {
 
     @ParameterizedTest
     @MethodSource("params")
-    void sumSalary(List<Employee> employees) throws WrongFirstOrLastName {
+    void sumSalary(List<Employee> employees) {
         employeeService.add("Вася", "Пупкин",1,1000.00f);
         employeeService.add("Иван", "Иванов",1,100.00f);
         employeeService.add("Мария", "Ивановна",2,1000.00f);
@@ -82,7 +81,7 @@ public class DepartmentServiceTest {
     }
     @ParameterizedTest
     @MethodSource("params")
-    void allForDepartments(List<Employee> employees) throws WrongFirstOrLastName {
+    void allForDepartments(List<Employee> employees) {
         employeeService.add("Вася", "Пупкин",1,1000.00f);
         employeeService.add("Иван", "Иванов",1,100.00f);
         employeeService.add("Мария", "Ивановна",2,1000.00f);
@@ -100,7 +99,7 @@ public class DepartmentServiceTest {
 
     @ParameterizedTest
     @MethodSource("params")
-    void all(List<Employee> employees) throws WrongFirstOrLastName {
+    void all(List<Employee> employees) {
         employeeService.add("Вася", "Пупкин",1,1000.00f);
         employeeService.add("Иван", "Иванов",1,100.00f);
         employeeService.add("Мария", "Ивановна",2,1000.00f);

@@ -50,10 +50,6 @@ public class DepartmentService {
                 .collect(Collectors.toList());
     }
     public List<Employee> all() {
-        List <Employee> employee = new ArrayList<>();
-        employeeService.getEmployees().forEach((key, value) ->
-                employee.add(value)
-        );
-        return employee;
+        return new ArrayList<>(employeeService.getEmployees().values());
     }
 }

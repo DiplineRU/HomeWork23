@@ -1,7 +1,6 @@
 package com.example.homework23.RestControllers;
 
 import com.example.homework23.Employee;
-import com.example.homework23.Exceptions.WrongFirstOrLastName;
 import com.example.homework23.Services.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,17 +20,17 @@ public class EmployeeController {
     public Employee add(@RequestParam(value = "firstName") String firstName,
                         @RequestParam(value = "lastName") String lastName,
                         @RequestParam(value = "departmentId") int departmentId,
-                        @RequestParam(value = "salary") float salary) throws WrongFirstOrLastName {
+                        @RequestParam(value = "salary") float salary) {
         return employeeService.add(firstName,lastName,departmentId,salary);
     }
     @GetMapping("/remove")
     public Employee remove(@RequestParam (value = "firstName") String firstName,
-                           @RequestParam(value = "lastName") String lastName) throws WrongFirstOrLastName {
+                           @RequestParam(value = "lastName") String lastName) {
         return employeeService.remove(firstName,lastName);
     }
     @GetMapping("/find")
     public Employee find(@RequestParam (value = "firstName") String firstName,
-                         @RequestParam(value = "lastName") String lastName) throws WrongMethodTypeException, WrongFirstOrLastName {
+                         @RequestParam(value = "lastName") String lastName) throws WrongMethodTypeException {
         return employeeService.find(firstName,lastName);
     }
 }

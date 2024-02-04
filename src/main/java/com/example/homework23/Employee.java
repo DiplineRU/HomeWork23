@@ -1,7 +1,5 @@
 package com.example.homework23;
-import org.springframework.stereotype.Component;
 
-@Component
 public class Employee {
     private final String lastName;
     private final String firstName;
